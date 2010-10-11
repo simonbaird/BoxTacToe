@@ -1,0 +1,48 @@
+
+
+
+body {
+	background-color:#888;
+	text-align:center;
+}
+
+#outer {
+	margin:auto;
+	margin-top:2em;
+}
+
+#outer td {
+}
+
+#board {
+}
+
+#board td {
+	border:2px solid #aaa;
+	background-color:#ccc;
+	text-align:center;
+	vertical-align:middle;
+}
+
+#board a {
+	margin:auto;
+	display:block;
+	width:40px;
+	height:40px;
+	text-decoration:none;
+	color:#666;
+	font-size:240%;
+	font-weight:bold;
+}
+
+#board a.hover {
+	color:#bbb;
+	background-color:#eee;
+}
+
+
+#reset {
+	color:white;
+	text-decoration:none;
+	font-size:150%;
+}
