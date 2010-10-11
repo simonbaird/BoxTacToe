@@ -22,6 +22,7 @@ $(function(){
 		function() {
 			if (!$(this).hasClass('played')) {
 				$(this).html(whosTurn == cross ? cross : nought);
+				$(this).addClass(whosTurn == cross ? 'cross' : 'nought');
 				$(this).addClass('hover');
 			}
 		},
@@ -42,7 +43,7 @@ $(function(){
 
 	$('#reset').click(function(){
 		$('#board a').html('');
-		$('#board a').removeClass('played');
+		$('#board a').removeClass('played nought cross');
 		return false;
 	});
 
