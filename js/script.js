@@ -35,9 +35,11 @@ $(function(){
 	);
 
 	$('#board a').click(function(){
-		turnRotate();
-		$(this).removeClass('hover');
-		$(this).addClass('played');
+		if (!$(this).hasClass('played')) {
+			turnRotate();
+			$(this).removeClass('hover');
+			$(this).addClass('played');
+		}
 		return false;
 	});
 
