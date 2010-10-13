@@ -14,17 +14,17 @@ body {
 #outer td {
 }
 
-#board {
+.board {
 }
 
-#board td {
+.board td {
 	border:1px solid #ccc;
 	background-color:#fff;
 	text-align:center;
 	vertical-align:middle;
 }
 
-#board a {
+.board a {
 	margin:auto;
 	display:block;
 	width:40px;
@@ -35,20 +35,20 @@ body {
 	font-weight:bold;
 }
 
-#board a.hover.nought {
+.board a.hover.nought {
 	color:#963;
 }
 
-#board a.hover.cross {
+.board a.hover.cross {
 	color:#396;
 }
 
-#board a.played.nought {
+.board a.played.nought {
 	background-color:#fdb;
 	color:#963;
 }
 
-#board a.played.cross {
+.board a.played.cross {
 	background-color:#dfb;
 	color:#396;
 }

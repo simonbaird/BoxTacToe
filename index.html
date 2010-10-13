@@ -42,11 +42,11 @@
 
 
   <script id="boardTemplate" type="text/x-jquery-tmpl">
-	<table id="board" cellspacing="0">
+	<table class="board" id="board_${face}" cellspacing="0">
 		<tbody>
-			<tr><td><a href="#"></a></td><td><a href="#"></a></td><td><a href="#"></a></td></tr>
-			<tr><td><a href="#"></a></td><td><a href="#"></a></td><td><a href="#"></a></td></tr>
-			<tr><td><a href="#"></a></td><td><a href="#"></a></td><td><a href="#"></a></td></tr>
+			<tr><td><a id="${face}_3_1" href="#"></a></td><td><a id="${face}_3_2" href="#"></a></td><td><a id="${face}_3_3" href="#"></a></td></tr>
+			<tr><td><a id="${face}_2_1" href="#"></a></td><td><a id="${face}_2_2" href="#"></a></td><td><a id="${face}_2_3" href="#"></a></td></tr>
+			<tr><td><a id="${face}_1_1" href="#"></a></td><td><a id="${face}_1_2" href="#"></a></td><td><a id="${face}_1_3" href="#"></a></td></tr>
 		</tbody>
 	</table>
   </script>
@@ -69,10 +69,10 @@
     <div id="main">
 
 		<table id="outer">
-			<tr><td id="1_1"></td><td id="2_1"></td><td id="3_1"></td></tr>
-			<tr><td id="1_2"></td><td id="2_2"></td><td id="3_2"></td></tr>
-			<tr><td id="1_3"></td><td id="2_3"></td><td id="3_3"></td></tr>
-			<tr><td id="1_4"></td><td id="2_4"></td><td id="3_4"></td></tr>
+			<tr><td></td><td id="north"></td><td></td></tr>
+			<tr><td id="west"></td><td id="base"></td><td id="east"></td></tr>
+			<tr><td></td><td id="south"></td><td></td></tr>
+			<tr><td></td><td id="top"></td><td></td></tr>
 		</table>
 
 		<div><a href="#" id='reset'>reset</a></div>
