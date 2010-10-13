@@ -22,8 +22,9 @@ $.extend(Board.prototype,{
 	},
 
 	movePlayed: function(position_string,player) {
-		console.log(position_string + ": " + player);
+		//console.log(position_string + ": " + player);
 		position = position_string.split('_');
+		// todo
 	}
 });
 
