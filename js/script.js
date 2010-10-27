@@ -1,6 +1,7 @@
-/* Author: 
-
-*/
+/*
+ *	Author:  Simon Baird
+ *
+ */
 ;(function($){
 
 var cross    = '\u25EF',
@@ -12,16 +13,89 @@ function turnRotate() {
 	whosTurn = (whosTurn == cross) ? nought : cross;
 }
 
+//
+// A face
+// Six of them make a cube
+//
+function Face(name,edges) {
+	// A face has four edges, north, south, east and west
+	// (Am imagining the cube unfolded here, otherwise it gets confusing)
+	this.name  = name;
+	this.edges = edges;
+	return this;
+}
+
+function Cube() {
+	//
+	// Imagine you are holding the cube and looking at it
+	// Left is your left, right is your right.
+	// Front is closest to you. Back is furthest from you.
+	//
+	// Now imagine unfolding the box with the front in the middle,
+	// so it looks like this:
+	//       +-----+
+	//       | Top |
+	// +-----+-----+-----+
+	// | Left| Frnt| Rght|
+	// +-----+-----+-----+
+	//       | Botm|
+	//       +-----+
+	//       | Back|
+	//       +-----+
+	this.faces = {
+		top: new Face('top',{
+			north: {face:'back',  edge:'south'},
+			south: {face:'front', edge:'north'},
+			west:  {face:'left',  edge:'north'},
+			east:  {face:'right', edge:'north'},
+		}),
+
+		left: new Face('left',{
+			north: {face:'top',   edge:'west'},
+			south: {face:'bottom',edge:'west'},
+			west:  {face:'back',  edge:'west'},
+			east:  {face:'front', edge:'west'},
+		}),
+		front: new Face('front',{
+			north: {face:'top',   edge:'south'},
+			south: {face:'bottom',edge:'north'},
+			west:  {face:'left',  edge:'east'},
+			east:  {face:'right', edge:'west'}
+		}),
+		right: new Face('right',{
+			north: {face:'top',   edge:'east'},
+			south: {face:'bottom',edge:'east'},
+			west:  {face:'front', edge:'east'},
+			east:  {face:'back',  edge:'east'}
+		}),
+		bottom: new Face('bottom',{
+			north: {face:'front', edge:'south'},
+			south: {face:'back',  edge:'north'},
+			west:  {face:'left',  edge:'south'},
+			east:  {face:'right', edge:'south'}
+		}),
+		back: new Face('back',{
+			north: {face:'bottom',edge:'south'},
+			south: {face:'top',   edge:'north'},
+			west:  {face:'left',  edge:'west'},
+			east:  {face:'right', edge:'east'}
+		})
+	};
+
+	return this;
+}
+
+
 function Board() {
-	this.faces = ['top','north','south','east','west','base'];
+	this.cube = new Cube(); // not used yet
 
 	this.squares = {
 		'top':  [[],[],[]],
-		'north':[[],[],[]],
-		'south':[[],[],[]],
-		'east': [[],[],[]],
-		'west': [[],[],[]],
-		'base': [[],[],[]]
+		'left':[[],[],[]],
+		'front':[[],[],[]],
+		'right': [[],[],[]],
+		'bottom': [[],[],[]],
+		'back': [[],[],[]]
 	};
 
 	return this;
@@ -53,7 +127,7 @@ $.extend(Board.prototype,{
 
 $(function(){
 
-	$.each(["base","north","south","east","west","top"],function(index,value){
+	$.each(["top","left","front","right","bottom","back"],function(index,value){
 		$('#boardTemplate').tmpl({'face':value}).appendTo('#'+value);
 	});
 
